@@ -1,16 +1,42 @@
 ---
-
+// Component script
+import Main from "../layouts/Layout.astro";
+const profilePicture =
+  "https://media.licdn.com/dms/image/D5603AQEGaIMqO7EDLw/profile-displayphoto-shrink_400_400/0/1698506658613?e=1712188800&v=beta&t=-UqWzJSEGAJVOvLvO2NKXkw7VbZyfgolP556cXQOJFQ";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Hello world</h1>
-	</body>
-</html>
+<!-- Component template --> 
+<Main>
+  <div class="profile">
+    <img src={profilePicture} alt="profile" class="profile__picture" />
+    <div class="profile__details">
+      <h1>Prenitha Rajesh</h1>
+      <h2>Software Engineer</h2>
+      <p>I'm a web developer and I help build excellent solutions!</p>
+    </div>
+  </div>
+</Main>
+
+<style>
+  .profile {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 1rem 0 3rem 0;
+  }
+
+  .profile__picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 2rem 1rem 0;
+  }
+
+  .profile__details {
+    flex: 1 0 300px;
+  }
+
+  .profile__details h1 {
+    margin: 0;
+  }
+</style>
