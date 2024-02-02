@@ -1,5 +1,5 @@
 ---
-
+import ThemeToggler from "./ThemeToggler.astro"
 ---
 
 <nav>
@@ -14,6 +14,7 @@
             <a href="#">Technology</a>
         </li>
     </ul>
+    <ThemeToggler />
 </nav>
 
 <style>
@@ -37,8 +38,13 @@
     }
 
     a{
+        color:var(--gray-400);
         padding:0.5rem 1rem;
         border-radius: 10px;
         text-decoration: none;
+    }
+
+    a:hover{
+        color:var(--gray-900);
     }
 </style>

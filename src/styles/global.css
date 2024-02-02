@@ -1,13 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
+html{
+    --background:white;
+    --grey-200:#222222;
+    --grey-400:#444444;
+    --grey-600:#666666;
+    --grey-900: #111111;
+}
+
+html.dark{
+    --background:black;
+    --grey-200:#eaeaea;
+    --grey-400:#acacac;
+    --grey-600:#ffffff;
+    --grey-900: #fafafa;
+}
+
 body{
     font-family: "Inter", sans-serif;
     padding:0 0.5rem;
+    background-color: var(--background);
+    color: var(--grey-600);
 }
 
 h1{
     font-size: 2rem;
     line-height:1;
+    color:var(--grey-900);
 }
 h1 + h2{
     font-size: 1.1rem;
