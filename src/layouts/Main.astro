@@ -4,22 +4,56 @@ import Footer from "../components/Footer.astro";
 import NavigationBar from "../components/NavigationBar.astro";
 ---
 
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Prenitha's website" />
-        <title>Astro</title>
-	</head>
-	<body>
-        <main>
-			<NavigationBar />
-            <slot></slot>
-			<Footer />
-        </main>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Prenitha's website" />
+    <title>Astro</title>
+  </head>
+  <body>
+    <main>
+      <NavigationBar />
+      <slot />
+      <Footer />
+    </main>
+  </body>
 </html>
 
+<script is:inline>
+  // imports npm will not work - no script processing
+  // Ts not supported here
+  // this will get added multiple times if component used multiple times
+
+  const COLOR_MODE_KEY = "COLOR_MODE";
+  const LIGHT_THEME = "light";
+  const DARK_THEME = "dark";
+
+  const rootElement = document.documentElement;
+
+  const getInitialColorMode = () => {
+    const previouslySavedColorMode =
+      window.localStorage.getItem(COLOR_MODE_KEY);
+    if (previouslySavedColorMode) {
+      return previouslySavedColorMode;
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return DARK_THEME;
+    }
+    return LIGHT_THEME;
+  };
+
+  const initialColor = getInitialColorMode();
+
+  const setInitialColorMode = (mode) => {
+    if (mode === LIGHT_THEME) {
+      rootElement.classList.remove(DARK_THEME);
+    } else {
+      rootElement.classList.add(DARK_THEME);
+    }
+  };
+
+  setInitialColorMode(initialColor);
+</script>

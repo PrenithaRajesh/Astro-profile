@@ -44,36 +44,15 @@
 </style>
 
 <script>
+  // this will get executed only after html is parsed
+  // executed only once
+
   const COLOR_MODE_KEY = "COLOR_MODE";
   const LIGHT_THEME = "light";
   const DARK_THEME = "dark";
 
   const toggle = document.querySelector("button[aria-label='Theme toggler']");
   const rootElement = document.documentElement;
-
-  const getInitialColorMode = () => {
-    const previouslySavedColorMode =
-      window.localStorage.getItem(COLOR_MODE_KEY);
-    if (previouslySavedColorMode) {
-      return previouslySavedColorMode;
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return DARK_THEME;
-    }
-    return LIGHT_THEME; 
-  };
-
-  const initialColor = getInitialColorMode();
-
-  const setInitialColorMode = (mode:string) => {
-    if(mode === LIGHT_THEME) {
-      rootElement.classList.remove(DARK_THEME);
-    }else{
-        rootElement.classList.add(DARK_THEME);
-    }
-  };
-  
-    setInitialColorMode(initialColor);
 
   if (toggle) {
     toggle.addEventListener("click", () => {
