@@ -1,6 +1,8 @@
 ---
 // Component script
 import Main from "../layouts/Main.astro";
+
+import Cards from "../components/Cards.astro";
 const profilePicture =
   "https://media.licdn.com/dms/image/D5603AQEGaIMqO7EDLw/profile-displayphoto-shrink_400_400/0/1698506658613?e=1712188800&v=beta&t=-UqWzJSEGAJVOvLvO2NKXkw7VbZyfgolP556cXQOJFQ";
 ---
@@ -15,6 +17,22 @@ const profilePicture =
       <p>I'm a web developer and I help build excellent solutions!</p>
     </div>
   </div>
+
+  <Cards cards={[
+    {title: "Check out my latest work!",
+    gradientFrom: "#818cf8",
+    gradientTo: "#d8b4fe",
+    to: "/tech"},
+    {title: "See what I've been up to!",
+    gradientFrom: "#fde68a",
+    gradientTo: "#fca5a5",
+    to: "/work-summary"},
+    {title: "Beyond the screen!",
+    gradientFrom: "#6ee7b7",
+    gradientTo: "#9333ea",
+    to: "/hobbies"}
+
+  ]}/>
 </Main>
 
 <style>
