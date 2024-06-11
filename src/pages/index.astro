@@ -4,7 +4,7 @@ import Main from "../layouts/Main.astro";
 
 import Cards from "../components/Cards.astro";
 const profilePicture =
-  "https://media.licdn.com/dms/image/D5603AQEGaIMqO7EDLw/profile-displayphoto-shrink_400_400/0/1698506658613?e=1712188800&v=beta&t=-UqWzJSEGAJVOvLvO2NKXkw7VbZyfgolP556cXQOJFQ";
+  "https://media.licdn.com/dms/image/D5603AQEGaIMqO7EDLw/profile-displayphoto-shrink_800_800/0/1698506658613?e=1723680000&v=beta&t=9VxztyFdmM0sqfVGFItzwlfxQbE6zYofuhSk1eIcDAQ";
 ---
 
 <!-- Component template --> 
@@ -12,9 +12,9 @@ const profilePicture =
   <div class="profile">
     <img src={profilePicture} alt="profile" class="profile__picture" />
     <div class="profile__details">
-      <h1>Prenitha Rajesh</h1>
-      <h2>Software Engineer</h2>
-      <p>I'm a web developer and I help build excellent solutions!</p>
+      <h1>Prenitha R</h1>
+      <h2>B.Tech Undergrad @ VIT Chennai</h2>
+      <p>Full stack dev, tech innovator, and community leader!</p>
     </div>
   </div>
 
@@ -22,15 +22,15 @@ const profilePicture =
     {title: "Check out my latest work!",
     gradientFrom: "#818cf8",
     gradientTo: "#d8b4fe",
-    to: "/tech"},
+    to: "/projects"},
     {title: "See what I've been up to!",
     gradientFrom: "#fde68a",
     gradientTo: "#fca5a5",
-    to: "/work-summary"},
+    to: "/experience"},
     {title: "Beyond the screen!",
     gradientFrom: "#6ee7b7",
     gradientTo: "#9333ea",
-    to: "/hobbies"}
+    to: "/beyond-tech"}
 
   ]}/>
 </Main>
@@ -59,6 +59,3 @@ const profilePicture =
   }
 </style>
 
-<script>
-  console.log("Hello world!");
-</script>

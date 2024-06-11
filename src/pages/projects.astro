@@ -1,0 +1,64 @@
+---
+import Main from "../layouts/Main.astro";
+import Project from "../components/Project.astro";
+
+const projects = [
+  {
+    name: "V-Attend - A Virtual Attendance System",
+    description: "V-Attend is a virtual attendance system that uses facial recognition to mark attendance. It is built using Python, Redis, Insightface and Streamlit.",
+    gradientFrom: "#818cf8",
+    gradientTo: "#d8b4fe",
+  },
+  {
+    name: "ClearWave: Underwater Image Dehazing",
+    description: "ClearWave aims to remove the haze from underwater images. Blazingly fast way to improve the quality of underwater images using image processing techniques.",
+    gradientFrom: "#fde68a",
+    gradientTo: "#fca5a5",
+  },
+  {
+    name: "Advanced Computing Machinery Women (ACM-W) Website",
+    description: "Design and development of the ACM-W VIT website, aimed to create a visually appealing and user-friendly interface to showcase the organization's activities, resources, and events. ",
+    gradientFrom: "#6ee7b7",
+    gradientTo: "#9333ea",
+  },
+  {
+    name: "Iterative Maximum Edge Removal for Minimum Spanning Tree Construction",
+    description: "A novel algorithm to construct a minimum spanning tree by iteratively removing the maximum edge. The algorithm is implemented in Python and tested on various datasets.",
+    gradientFrom: "#818cf8",
+    gradientTo: "#d8b4fe",
+  },
+  {
+    name: "DePondFi'24 - Multi-Fish Keypoint Detection",
+    description: "DePondFi'24 is a fish keypoint detection model that detects the keypoints of fish in an image. It is built using PyTorch and OpenCV.",
+    gradientFrom: "#fde68a",
+    gradientTo: "#fca5a5",
+  }
+];
+---
+
+<Main title="Prenitha R | Projects">
+    <h1>Projects</h1>
+
+    <div class="project-list">
+        {projects.map((project) => (
+            <Project 
+                name={project.name} 
+                description={project.description} 
+                gradientFrom={project.gradientFrom} 
+                gradientTo={project.gradientTo} 
+            />
+        ))}
+    </div>
+</Main>
+
+<style>
+
+.project-list {
+    display: grid;
+    grid-template-columns: 1;
+}
+
+.project-list .card {
+    box-sizing: border-box;
+}
+</style>

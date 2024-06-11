@@ -1,0 +1,66 @@
+---
+export type Props = {
+  name: string;
+  description: string;
+  gradientFrom: string;
+  gradientTo: string;
+};
+
+const { name, description, gradientFrom, gradientTo } = Astro.props;
+---
+
+<a class="card" data-gradient-from={gradientFrom}>
+  <div class="card__inner">
+    <div class="card__title">
+      {name}
+    </div>
+    <div class="card__description">
+      {description}
+    </div>
+  </div>
+</a>
+
+<style define:vars={{ gradientFrom, gradientTo }}>
+  .card {
+    --radius: 10px;
+    background-image: linear-gradient(to right, var(--gradientFrom), var(--gradientTo));
+    padding: 1.5px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    margin: 10px;
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+  }
+
+  .card:hover {
+    transform: scale(0.95);
+  }
+
+  .card__inner {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card__title {
+    font-size: 1.2rem;
+    color: var(--grey-900);
+    font-weight: 500;
+    line-height: 1.75rem;
+  }
+
+  .card__description {
+    margin-top: 10px;
+    color: var(--grey-400);
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+</style>
+
+<script>
+  const card = document.querySelector('.card');
+  console.log((card as HTMLElement)!.dataset.gradientFrom);
+</script>
