@@ -1,0 +1,75 @@
+---
+import Main from "../layouts/Main.astro";
+import Experience from "../components/Experience.astro";
+
+const experiences = [
+  {
+    name: "Founding Chair, ACM-W VIT Chennai",
+    dateFrom: "Mar 2023",
+    dateTo: "Mar 2024",
+    description: [
+      "🏆Best Emerging Chapter Award at the ACM India Annual Event 2023.",
+      "Cultivated a vibrant tech ecosystem by organizing multiple impactful events and workshops, engaging more than 1000 students across various disciplines.",
+      "Successfully achieved a remarkable growth in chapter membership, with a current membership of over 300+ talented and enthusiastic female students.",
+      "Collaborated with industry leaders to provide mentorship programs and industry talks, enhancing members' professional development.",
+    ],
+    gradientFrom: "#818cf8",
+    gradientTo: "#d8b4fe",
+  },
+  {
+    name: "Lead Developer, Ispace",
+    dateFrom: "01-07-2023",
+    dateTo: "Present",
+    description: [
+      "Leading a team of developers to create innovative solutions and improve project workflows.",
+      "Driving the development of web applications using modern frameworks and technologies.",
+      "Mentoring junior developers and fostering a culture of continuous learning within the team.",
+    ],
+    gradientFrom: "#fde68a",
+    gradientTo: "#fca5a5",
+  },
+  {
+    
+    name: "Frontend Developer, Vulcans Build",
+    dateFrom: "Nov 2023",
+    dateTo: "Dec 2023",
+    description: [
+      "Designed and developed the entire frontend of Timesheet website from scratch.",
+      "Collaborated with cross-functional teams to gather requirements, ensuring alignment with user needs.",
+      "Translated design concepts into responsive and user-friendly interfaces, prioritizing a seamless user experience.",
+    ],
+    gradientFrom: "#6ee7b7",
+    gradientTo: "#9333ea",
+  }
+];
+---
+
+<Main title="Prenitha R | Experiences">
+    <h1>Experience</h1>
+
+    <div class="experience-list">
+        {experiences.map((experience) => (
+            <Experience 
+                name={experience.name} 
+                dateFrom={experience.dateFrom}
+                dateTo={experience.dateTo}
+                description={experience.description}
+                gradientFrom={experience.gradientFrom}
+                gradientTo={experience.gradientTo}
+            />
+        ))}
+    </div>
+</Main>
+
+<style>
+.experience-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.experience-list .card {
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+</style>

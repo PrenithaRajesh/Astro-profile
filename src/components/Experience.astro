@@ -1,0 +1,91 @@
+---
+export type Props = {
+  name: string;
+  dateFrom: string;
+  dateTo: string;
+  description: string[];
+  gradientFrom: string;
+  gradientTo: string;
+};
+
+const { name, dateFrom, dateTo, description, gradientFrom, gradientTo } = Astro.props;
+---
+
+<a class="card" data-gradient-from={gradientFrom}>
+  <div class="card__inner">
+    <div class="card__flex">
+        <div class="card__title">
+        {name}
+        </div>
+        <div class="card__dates">
+        {dateFrom} - {dateTo}
+        </div>
+    </div>
+    <div class="card__description">
+        <!-- <ul> -->
+      {description.map((item) => (
+       <p>{item}</p>
+      ))
+      }
+        <!-- </ul> -->
+    </div>
+  </div>
+</a>
+
+<style define:vars={{ gradientFrom, gradientTo }}>
+  .card {
+    --radius: 15px 0 0 15px;
+    background-image: linear-gradient(to right, var(--gradientFrom), var(--gradientTo));
+    padding: 0 0 0 2px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width:100%;
+  }
+
+  /* .card:hover {
+    transform: scale(0.95);
+  } */
+
+  .card__inner {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+  }
+
+    .card__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+  .card__title {
+    font-size: 1.2rem;
+    color: var(--grey-900);
+    font-weight: 500;
+  }
+
+  .card__dates {
+    font-size: 1rem;
+    color: var(--grey-400);
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  .card__description {
+    margin-top: 10px;
+    color: var(--grey-700);
+    font-size: 1rem;
+  }
+</style>
+
+<script>
+  const card = document.querySelector('.card');
+  console.log((card as HTMLElement)!.dataset.gradientFrom);
+</script>

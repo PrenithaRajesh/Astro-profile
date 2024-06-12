@@ -7,12 +7,6 @@ import ThemeToggler from "./ThemeToggler.astro"
         <li>
             <a href="/">Home</a>
         </li>
-        <li>
-            <a href="/projects">Projects</a>
-        </li>
-        <li>
-            <a href="/experiences">Experience</a>
-        </li>
     </ul>
     <ThemeToggler />
 </nav>
@@ -42,23 +36,11 @@ import ThemeToggler from "./ThemeToggler.astro"
         padding:0.5rem 1rem;
         border-radius: 10px;
         text-decoration: none;
+        background-color:var(--grey-900);
+        color:var(--background); 
     }
 
     a:hover{
         color:var(--gray-900);
     }
-
-    a.active{
-        background-color:var(--grey-900);
-        color:var(--background); 
-    }
 </style>
-
-<script>
-    const {pathname} = window.location;
-
-    const activeLink = document.querySelector(`nav a[href="${pathname}"]`);
-    if(activeLink){
-        activeLink.classList.add('active');
-    }
-</script>
