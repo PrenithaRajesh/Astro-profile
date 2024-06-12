@@ -1,0 +1,155 @@
+---
+
+interface TechStack {
+  [key: string]: { name: string; image: string; }[];
+}
+
+const techstack: TechStack = {
+    // 'JavaScript', 'TypeScript', 'Python', 'Java', 'C/C++', 'Go'
+    Languages: [{
+        name: "JavaScript",
+        image:"public/images/js.png"},
+        {
+            name: "TypeScript",
+            image:"public/images/ts.png"},
+        {
+            name: "Python",
+            image:"public/images/python.png"},
+        {
+            name: "Java",
+            image:"public/images/java.png"},
+        {
+            name: "C/C++",
+            image:"public/images/cpp.png"},
+        {
+            name: "Go",
+            image:"public/images/go.png"}
+        ],
+    // 'HTML', 'CSS', 'React', 'Astro', 'Next.js'
+
+    Frontend: [{
+        name: "HTML",
+        image:"public/images/html.png"},
+        {
+            name: "CSS",
+            image:"public/images/css.png"},
+        {
+            name: "React",
+            image:"public/images/react.png"},
+        {
+            name: "Astro",
+            image:"public/images/astro.png"},
+        {
+            name: "Next.js",
+            image:"public/images/next.jpg"}
+        ],
+        // tools: ['Git', 'VS Code', 'Postman']
+    Tools: [{
+        name: "Git",
+        image:"public/images/git.png"},
+        {
+            name: "VS Code",
+            image:"public/images/vscode.png"},
+        {
+            name: "Postman",
+            image:"public/images/postman.png"}
+        ] ,
+    // database: ['MySQL', 'PostgreSQL', 'MongoDB'],
+    Database: [{
+        name: "MySQL",
+        image:"public/images/mysql.png"},
+        {
+            name: "PostgreSQL",
+            image:"public/images/postgresql.png"},
+        {
+            name: "MongoDB",
+            image:"public/images/mongo.png"}
+        ],
+        // backend: ['Node', 'Express'],
+    Backend: [{
+        name: "Node",
+        image:"public/images/node.png"},
+        {
+            name: "Express",
+            image:"public/images/express.png"}
+        ],
+    // devOps: ['Docker', 'Kubernetes'],
+    DevOps: [{
+        name: "Docker",
+        image:"public/images/docker.png"},
+        {
+            name: "Kubernetes",
+            image:"public/images/kubernetes.png"}
+        ],
+         // cloud: ['GCP', 'Azure'],
+    Cloud: [{
+        name: "GCP",
+        image:"public/images/gcp.png"},
+        {
+            name: "Azure",
+            image:"public/images/azure.png"}
+        ], 
+    // design: ['Figma', 'Adobe XD'],
+    Design: [{
+        name: "Figma",
+        image:"public/images/figma.png"},
+        {
+            name: "Adobe XD",
+            image:"public/images/adobe xd.png"}
+        ],
+};
+
+---
+
+<>
+    <h2>Tech Stack</h2>
+    {Object.keys(techstack).map((key) => (
+        <div class="tech-stack">
+            <h3>{key}</h3>
+            <div>
+                {
+                techstack[key].map((item) => (
+                    <div>
+                        <img src={item.image} alt={item.name} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    ))}
+
+</>
+
+<style>
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    img {
+        /* width: 40px; */
+        height: 35px;
+    }
+
+    h2{
+        margin-top: 2.5rem;
+    }
+
+    h3{
+        color: var(--grey-400);
+    }
+
+    @media (max-width: 768px) {
+        img {
+            height: 30px;
+        }
+
+        .tech-stack {
+            margin-bottom: 1rem;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+</style>

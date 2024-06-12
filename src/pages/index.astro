@@ -3,6 +3,10 @@
 import Main from "../layouts/Main.astro";
 
 import Cards from "../components/Cards.astro";
+import About from "../components/About.astro";
+import TechStack from "../components/TechStack.astro";
+import Contact from "../components/Contact.astro";
+
 const profilePicture =
   "https://media.licdn.com/dms/image/D5603AQEGaIMqO7EDLw/profile-displayphoto-shrink_800_800/0/1698506658613?e=1723680000&v=beta&t=9VxztyFdmM0sqfVGFItzwlfxQbE6zYofuhSk1eIcDAQ";
 ---
@@ -33,6 +37,12 @@ const profilePicture =
     to: "/beyond-tech"}
 
   ]}/>
+
+  <About />
+
+  <TechStack />
+
+  <Contact />
 </Main>
 
 <style>
